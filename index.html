@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikram Haddouche | Industry 4.0 &amp; Industrial Automation Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            color: #000000;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #64ffda;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 50px;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #64ffda, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #64ffda;
+            font-weight: 600;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #b3b3b3;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(100, 255, 218, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        section {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #64ffda);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #64ffda;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card p {
+            color: #b3b3b3;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background: rgba(100, 255, 218, 0.2);
+            color: #64ffda;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-link:hover {
+            color: #a855f7;
+        }
+
+
+        .internship-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .internship-gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .internship-gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .internship-gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .internship-gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(100, 255, 218, 0.3);
+            border-color: #64ffda;
+        }
+
+        .internship-gallery-placeholder {
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(168, 85, 247, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+            border: 2px dashed rgba(100, 255, 218, 0.4);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .internship-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .internship-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .internship-gallery-item-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000000;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .screenshot-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 9/16;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .screenshot-item:hover::before {
+            opacity: 1;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(100, 255, 218, 0.3);
+            border-color: #64ffda;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(168, 85, 247, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+            border: 2px dashed rgba(100, 255, 218, 0.4);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .screenshot-caption {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .screenshot-item-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000000;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gallery-container {
+            width: 95%;
+            max-width: 1200px;
+            height: 90%;
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 25px;
+            border: 2px solid rgba(100, 255, 218, 0.2);
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .gallery-modal.active .gallery-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .gallery-header {
+            padding: 30px;
+            border-bottom: 2px solid rgba(100, 255, 218, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(168, 85, 247, 0.1));
+        }
+
+        .gallery-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gallery-close {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .gallery-close:hover {
+            color: #ff5252;
+            transform: rotate(90deg);
+        }
+
+        .gallery-content {
+            padding: 40px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(100, 255, 218, 0.2);
+            border-color: #64ffda;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.2), rgba(168, 85, 247, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border: 2px dashed rgba(100, 255, 218, 0.4);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .gallery-caption {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .gallery-description {
+            color: #b3b3b3;
+            font-size: 1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000000;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 30000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .fullscreen-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .fullscreen-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+            transition: opacity 0.3s ease, transform 0.4s ease;
+        }
+
+        .fullscreen-video {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .fullscreen-close {
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 82, 82, 0.2);
+            border: 2px solid rgba(255, 82, 82, 0.5);
+            border-radius: 50%;
+            color: #ff5252;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .fullscreen-close:hover {
+            background: rgba(255, 82, 82, 0.4);
+            border-color: #ff5252;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.2);
+            border: 2px solid rgba(100, 255, 218, 0.5);
+            border-radius: 50%;
+            color: #64ffda;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(100, 255, 218, 0.4);
+            border-color: #64ffda;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.prev {
+            left: -80px;
+        }
+
+        .nav-arrow.next {
+            right: -80px;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(100, 255, 218, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: #64ffda;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+        }
+
+        .education-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+        }
+        .education-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 45%;
+        }
+
+        .education-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        .education-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+            background: #64ffda;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .education-item:nth-child(odd)::before {
+            right: -8px;
+        }
+
+        .education-item:nth-child(even)::before {
+            left: -8px;
+        }
+
+        .education-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .education-content h4 {
+            color: #64ffda;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .education-content .period {
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-content .institution {
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .education-content .modules {
+            color: #b3b3b3;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category {
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            color: #64ffda;
+            margin-bottom: 30px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-item {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            color: #000000;
+            transform: translateY(-3px);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #b3b3b3;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #b3b3b3;
+            transition: all 0.3s ease;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            color: #64ffda;
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #64ffda, #a855f7);
+            z-index: 9999;
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 768px) {
+            .fullscreen-close {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .nav-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .nav-arrow.prev {
+                left: 20px;
+            }
+
+            .nav-arrow.next {
+                right: 20px;
+            }
+
+            .image-counter {
+                bottom: 20px;
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                width: 95%;
+                margin: 20px;
+            }
+
+            .modal-header, .modal-content {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .education-timeline::before {
+                left: 20px;
+            }
+
+            .education-item {
+                width: auto;
+                left: 40px !important;
+                text-align: left !important;
+                padding-left: 30px !important;
+                padding-right: 0 !important;
+            }
+
+            .education-item::before {
+                left: -28px !important;
+                right: auto !important;
+            }
+
+            .language-toggle {
+                top: 15px;
+                right: 15px;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .seeking { display:inline-block; margin:0 auto 20px; padding:10px 22px; border:1px solid rgba(100,255,218,.4); background:rgba(100,255,218,.08); border-radius:50px; color:#e6fff9; font-size:clamp(.85rem,2vw,1rem); font-weight:500; }
+        .cta-secondary { background:transparent !important; color:#64ffda !important; border:2px solid #64ffda; margin-left:12px; padding:13px 38px; }
+        .cta-secondary:hover { background:rgba(100,255,218,.12) !important; }
+        .edu-badge { display:inline-block; margin-top:8px; padding:3px 12px; font-size:.78rem; font-weight:600; border-radius:20px; background:linear-gradient(135deg,#64ffda,#a855f7); color:#000; }
+        .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; max-width:1000px; margin:0 auto; }
+        .info-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:28px; }
+        .info-card h3 { color:#64ffda; margin-bottom:14px; font-size:1.2rem; }
+        .info-card p { color:#cfcfcf; margin-bottom:8px; }
+        @media (max-width:600px){ .cta-secondary{ margin:14px 0 0; } }
+        @media (min-width:901px){ .nav-container{ padding-right:150px !important; } .nav-links{ gap:22px !important; } }
+        @media (max-width:900px){ .nav-links{ flex-wrap:wrap; justify-content:center; gap:10px 16px !important; } }
+    </style>
+</head>
+<body>
+    <div class="scroll-indicator"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
+    </div>
+    
+    <div class="particles"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">IH</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-en="Home" data-fr="Accueil">Home</a></li>
+                <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
+                <li><a href="#internship" data-en="Internship" data-fr="Stage">Internship</a></li>
+                <li><a href="#education" data-en="Education" data-fr="Formation">Education</a></li>
+                <li><a href="#certificates" data-en="Certificates" data-fr="Certificats">Certificates</a></li>
+                <li><a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a></li>
+                <li><a href="#extras" data-en="Languages" data-fr="Langues">Languages</a></li>
+                <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ikram Haddouche</h1>
+            <div class="subtitle" data-en="Master's Student, Advanced Manufacturing &amp; Smart Systems · ENS Paris-Saclay" data-fr="Étudiante en Master Advanced Manufacturing &amp; Smart Systems · ENS Paris-Saclay">Master's Student, Advanced Manufacturing &amp; Smart Systems · ENS Paris-Saclay</div>
+            <div class="seeking" data-en="🎯 Seeking a 6-month end-of-studies internship (M2) · Industry 4.0 · Industrial Automation · Île-de-France" data-fr="🎯 Recherche un stage de fin d'études (M2) de 6 mois · Industrie 4.0 · Automatisme industriel · Île-de-France">🎯 Seeking a 6-month end-of-studies internship (M2) · Industry 4.0 · Industrial Automation · Île-de-France</div>
+            <p data-en="Passionate about developing intelligent systems and innovative solutions in smart buildings and embedded technologies" data-fr="Passionnée par le développement de systèmes intelligents et de solutions innovantes dans le domaine des bâtiments intelligents et des technologies embarquées.">Passionate about developing intelligent systems and innovative solutions in smart buildings and embedded technologies</p>
+            <a href="#projects" class="cta-button" data-en="Explore My Work" data-fr="Découvrir Mon Travail">Explore My Work</a>
+            <a href="https://drive.google.com/file/d/1YbX1-PqYD_wHEpQW1vizEzWJoPYXyQvr/view?usp=drivesdk" target="_blank" rel="noopener" class="cta-button cta-secondary" data-en="Download CV" data-fr="Télécharger mon CV">Download CV</a>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 data-en="Featured Projects" data-fr="Projets Principaux">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in-up">
+                <h3>Mobile Applications</h3>
+                <p data-en="Mobile applications developed with Flutter & Dart, powered by Firebase for real-time database, authentication, and notifications. Integrated Google Cloud for scalability and Cloudinary for efficient media storage and optimization. Each app is designed with a focus on performance, intuitive UI/UX, and practical problem-solving across different domains. ekvador platform that connects technicians, clients, and companies for efficient service management." data-fr="Applications mobiles développées avec Flutter & Dart, alimentées par Firebase pour base de données temps réel, authentification et notifications. Intégration de Google Cloud pour l'évolutivité et Cloudinary pour le stockage et l'optimisation efficaces des médias. Chaque application est conçue en se concentrant sur les performances, l'interface utilisateur/UX intuitive et la résolution pratique de problèmes dans différents domaines.">Mobile applications developed with Flutter & Dart, powered by Firebase for real-time database, authentication, and notifications. Integrated Google Cloud for scalability and Cloudinary for efficient media storage and optimization. Each app is designed with a focus on performance, intuitive UI/UX, and practical problem-solving across different domains.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Google Cloud</span>
+                    <span class="tech-tag">Cloudinary</span>
+                    <span class="tech-tag">Real-time Database</span>
+                </div>
+                <div class="project-links">
+                        <a href="#" class="project-link" onclick="openMobileAppsGallery()" data-en="View Gallery →" data-fr="Voir Galerie →">View Gallery →</a>
+                </div>
+            </div>
+            <div class="project-card fade-in-up">
+                <h3 data-en="DC Motor Control System" data-fr="Contrôle d'une Machine à Courant Continu">DC Motor Control System</h3>
+                <p data-en="Comprehensive modeling and simulation of a DC motor control system using MATLAB/Simulink. Designed and implemented PID and PI controllers for precise speed regulation. Conducted stability analysis and evaluated dynamic performance characteristics of the control system." data-fr="Modélisation et simulation complète d'un système de contrôle de moteur à courant continu utilisant MATLAB/Simulink. Conception et implémentation de régulateurs PID et PI pour la régulation précise de vitesse. Analyse de stabilité et évaluation des performances dynamiques du système de contrôle.">Comprehensive modeling and simulation of a DC motor control system using MATLAB/Simulink. Designed and implemented PID and PI controllers for precise speed regulation. Conducted stability analysis and evaluated dynamic performance characteristics of the control system.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">MATLAB/Simulink</span>
+                    <span class="tech-tag">PID Control</span>
+                    <span class="tech-tag">PI Control</span>
+                    <span class="tech-tag">Control Theory</span>
+                    <span class="tech-tag">System Modeling</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1gpDZhbbbK460DL1Um7wMiRGTCI0SIt-R/edit?usp=sharing&ouid=116058872781506106215&rtpof=true&sd=true" target="_blank" class="project-link" data-en="View Presentation →" data-fr="Voir Présentation →">View Presentation →</a>
+                    <a href="https://drive.google.com/file/d/1MWWDQF3EECCrDN5cVStY-oZeq4wqxeQ4/view?usp=sharing" target="_blank" class="project-link" data-en="View Document →" data-fr="Voir Document →">View Document →</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in-up">
+                <h3 data-en="Smart Elevator Prototype" data-fr="Prototype d'Ascenseur Intelligent">Smart Elevator Prototype</h3>
+                <p data-en="An intelligent elevator system prototype with RFID-based access control, user prioritization, and automated queue management. Developed using Arduino, implementing multiple authentication levels (Normal, VIP, Emergency) with real-time monitoring and security features. Includes comprehensive testing scenarios." data-fr="Un prototype de système d'ascenseur intelligent avec contrôle d'accès basé sur RFID, priorisation des utilisateurs et gestion automatisée des files d'attente. Développé avec Arduino, implémentant plusieurs niveaux d'authentification (Normal, VIP, Urgence) avec surveillance temps réel et fonctionnalités de sécurité. Inclut des scénarios de test complets.">An intelligent elevator system prototype with RFID-based access control, user prioritization, and automated queue management. Developed using Arduino, implementing multiple authentication levels (Normal, VIP, Emergency) with real-time monitoring and security features. Includes comprehensive testing scenarios.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">RFID</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Embedded Systems</span>
+                    <span class="tech-tag">Proteus</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1K5GeoKlhWItP0VpdAEK_s5iKlKFqEsjm/edit?usp=drive_link&ouid=116058872781506106215&rtpof=true&sd=true" target="_blank" class="project-link" data-en="View Presentation →" data-fr="Voir Présentation →">View Presentation →</a>
+                    <a href="https://drive.google.com/file/d/1GT1XF1_mN4TYt0QAuHsx_638EmlV4GDE/view?usp=sharing" target="_blank" class="project-link" data-en="View Document →" data-fr="Voir Document →">View Document →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="internship" style="overflow: hidden;">
+        <h2 data-en="Internships" data-fr="Stages">Internships</h2>
+        <div class="projects-grid" style="max-width: 100%; overflow-x: hidden;">
+            <div class="project-card fade-in-up">
+                <h3 data-en="EURL Gold Lift Chehat Rabeh" data-fr="EURL Gold Lift Chehat Rabeh">EURL Gold Lift Chehat Rabeh</h3>
+                <p data-en="Practical training at Staoueli, Algiers (January 27 - April 27, 2025). Completed electrical cabinet wiring from scratch using ARL 200 and ARL 300 PLCs. Installed and wired elevator inspection boxes, connected motors ensuring proper system operation. Implemented door safety systems including photoelectric cells and safety buttons. Installed emergency STOP buttons for user protection, and integrated speed limiters with safety parachute systems." data-fr="Stage pratique à Staoueli, Alger (27 janvier - 27 avril 2025). Réalisation du câblage d'armoires électriques à partir de zéro en utilisant les automates ARL 200 et ARL 300. Installation et câblage des boîtes d'inspection pour ascenseurs, connexion des moteurs assurant le bon fonctionnement du système. Mise en place des systèmes de sécurité des portes incluant cellules photoélectriques et boutons de sécurité. Installation des boutons d'urgence (STOP) pour la protection des usagers, et intégration du limiteur de vitesse avec système parachute de sécurité.">Practical training at Staoueli, Algiers (January 27 - April 27, 2025). Completed electrical cabinet wiring from scratch using ARL 200 and ARL 300 PLCs. Installed and wired elevator inspection boxes, connected motors ensuring proper system operation. Implemented door safety systems including photoelectric cells and safety buttons. Installed emergency STOP buttons for user protection, and integrated speed limiters with safety parachute systems.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ARL 200/300 PLCs</span>
+                    <span class="tech-tag">Electrical Wiring</span>
+                    <span class="tech-tag">Safety Systems</span>
+                    <span class="tech-tag">Motor Installation</span>
+                    <span class="tech-tag">Inspection Boxes</span>
+                    <span class="tech-tag">Emergency Systems</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" onclick="openInternshipGallery()" data-en="View Gallery →" data-fr="Voir Galerie →">View Gallery →</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in-up">
+                <h3 data-en="Electricity Production Preparatory Internship" data-fr="Stage Préparatoire en Production d'Électricité">Electricity Production Preparatory Internship</h3>
+                <p data-en="Gained practical experience in electricity production processes and industrial operations. Participated in monitoring and maintenance of production equipment. Understanding of safety procedures, system reliability, and energy distribution." data-fr="Acquisition d'une expérience pratique dans les procédés de production d'électricité et les opérations industrielles. Participation au suivi et à la maintenance des équipements de production. Compréhension des procédures de sécurité, de la fiabilité des systèmes et de la distribution d'énergie.">Gained practical experience in electricity production processes and industrial operations. Participated in monitoring and maintenance of production equipment. Understanding of safety procedures, system reliability, and energy distribution.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Power Generation</span>
+                    <span class="tech-tag">Equipment Maintenance</span>
+                    <span class="tech-tag">Safety Procedures</span>
+                    <span class="tech-tag">Energy Distribution</span>
+                    <span class="tech-tag">Industrial Operations</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" onclick="openElectricityGallery()" data-en="View Gallery →" data-fr="Voir Galerie →">View Gallery →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Applications Gallery Modal (updated img src to use Google Drive embeddable links) -->
+    <div class="gallery-modal" id="mobileAppsGallery">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="gallery-title">
+                    <span>📱</span>
+                    <span data-en="Mobile Applications Gallery" data-fr="Galerie Applications Mobiles">Mobile Applications Gallery</span>
+                </div>
+                <button class="gallery-close" onclick="closeMobileAppsGallery()">×</button>
+            </div>
+            <div class="gallery-content">
+                <div class="internship-gallery-grid">
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(0)">
+                        <div class="internship-gallery-item-number">1</div>
+                        <img src='https://lh3.googleusercontent.com/d/1bbpJ2MX2CN8GrE2djk7sZRHIGoFYq7yc' class="internship-image" alt="A1">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(1)">
+                        <div class="internship-gallery-item-number">2</div>
+                        <img src='https://lh3.googleusercontent.com/d/1uBSlHRbHfsbcq7OZeeJJ4dkGmCocTVr4' class="internship-image" alt="A2">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(2)">
+                        <div class="internship-gallery-item-number">3</div>
+                        <img src='https://lh3.googleusercontent.com/d/1h4NLs_8YIT_88qlujTHfGGai2Nj_webh' class="internship-image" alt="A3">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(3)">
+                        <div class="internship-gallery-item-number">4</div>
+                        <img src='https://lh3.googleusercontent.com/d/1LH6YAwpvkYEqs1M2muPzflwBAsdVhNM5' class="internship-image" alt="A4">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(4)">
+                        <div class="internship-gallery-item-number">5</div>
+                        <img src='https://lh3.googleusercontent.com/d/18KmJjoWbKa8ETOMSuiSV1_h87hG2FMQP' class="internship-image" alt="A5">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(5)">
+                        <div class="internship-gallery-item-number">6</div>
+                        <img src='https://lh3.googleusercontent.com/d/1WrzY7yYFxtv-3fxlimUgZLuHHkR764F6' class="internship-image" alt="A6">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(6)">
+                        <div class="internship-gallery-item-number">7</div>
+                        <img src='https://lh3.googleusercontent.com/d/1FmXgVj_FMqwJ2mkwlYoyHaOlkv49Egv-' class="internship-image" alt="A7">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(7)">
+                        <div class="internship-gallery-item-number">8</div>
+                        <img src='https://lh3.googleusercontent.com/d/1ill-AReCxjtGQx-FDB9MMWFIeK9-qbGB' class="internship-image" alt="A8">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(8)">
+                        <div class="internship-gallery-item-number">9</div>
+                        <img src='https://lh3.googleusercontent.com/d/1qRNWCsCXOCJ8eGAAc6YP0P4zxS6oQ0Fr' class="internship-image" alt="A9">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(9)">
+                        <div class="internship-gallery-item-number">10</div>
+                        <img src='https://lh3.googleusercontent.com/d/1bNtdTzFRiJuyFV9X0bkDbwL17y1P-6pD' class="internship-image" alt="A10">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(10)">
+                        <div class="internship-gallery-item-number">11</div>
+                        <img src='https://lh3.googleusercontent.com/d/1U_6em1zjZzxrH5rGLX2n7rwcbD1nANrT' class="internship-image" alt="A11">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openMobileAppImage(11)">
+                        <div class="internship-gallery-item-number">12</div>
+                        <img src='https://lh3.googleusercontent.com/d/1nozz2RGfXDxx0A-5sNVxkcFfLzSy3ibg' class="internship-image" alt="A12">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Gold Lift Internship Gallery Modal -->
+    <div class="gallery-modal" id="internshipGallery">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="gallery-title">
+                    <span>🔧</span>
+                    <span data-en="Gold Lift Internship Gallery" data-fr="Galerie Stage Gold Lift">Gold Lift Internship Gallery</span>
+                </div>
+                <button class="gallery-close" onclick="closeInternshipGallery()">×</button>
+            </div>
+            <div class="gallery-content">
+                <div class="internship-gallery-grid">
+                    <div class="internship-gallery-item" onclick="openInternshipImage(0)">
+                        <div class="internship-gallery-item-number">1</div>
+                        <img src='https://lh3.googleusercontent.com/d/1oxCWpPdg5VghSFxQu-a0JfiBz6F02-5L' alt="Electrical Cabinet Wiring" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(1)">
+                        <div class="internship-gallery-item-number">2</div>
+                        <img src='https://lh3.googleusercontent.com/d/1I51x1mVWdew8dLYfZYgP9eFXD68Z0BEi' alt="Inspection Box Installation" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(2)">
+                        <div class="internship-gallery-item-number">3</div>
+                        <img src='https://lh3.googleusercontent.com/d/12YeI4Lr4Pv6MOPIdoaUupyo404UoGhMZ' alt="Motor Connection" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(3)">
+                        <div class="internship-gallery-item-number">4</div>
+                        <img src='https://lh3.googleusercontent.com/d/1TplU6JegK6eRu-vsJAKPJD1Be7gjE1yi' alt="Safety Systems" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(4)">
+                        <div class="internship-gallery-item-number">5</div>
+                        <img src='https://lh3.googleusercontent.com/d/1btHiU1rs1VIJ6-eqf3vSrTSkcvIqrxTM' alt="Speed Limiter" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(5)">
+                        <div class="internship-gallery-item-number">6</div>
+                        <img src='https://lh3.googleusercontent.com/d/1YShtxiHMY6xmJwHoPgzSWa2b5SwEaPDS' alt="Complete Installation" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(6)">
+                        <div class="internship-gallery-item-number">7</div>
+                        <img src='https://lh3.googleusercontent.com/d/1_Z3Iu3Gf8-KzPY5PZm-Ob3oxtW47ZwSi' alt="Additional Work" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(7)">
+                        <div class="internship-gallery-item-number">8</div>
+                        <img src='https://lh3.googleusercontent.com/d/143liubMCrN0igMshDwNHV49_XgZO_vUB' alt="Additional Work" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(8)">
+                        <div class="internship-gallery-item-number">9</div>
+                        <img src='https://lh3.googleusercontent.com/d/1MsGEuAMQ8F38H6Ft6fQmUdbUIBP8Qc6z' alt="Additional Work" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(9)">
+                        <div class="internship-gallery-item-number">10</div>
+                        <img src='https://lh3.googleusercontent.com/d/1Xztl5dvGR9mUwvMYBQR1tCOIIfhiAHfI' alt="Additional Work" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(10)">
+                        <div class="internship-gallery-item-number">11</div>
+                        <div class="internship-gallery-placeholder">
+                            <span>▶️</span>
+                        </div>
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(11)">
+                        <div class="internship-gallery-item-number">12</div>
+                        <div class="internship-gallery-placeholder">
+                            <span>▶️</span>
+                        </div>
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(12)">
+                        <div class="internship-gallery-item-number">13</div>
+                        <img src='https://lh3.googleusercontent.com/d/1czcNYLVleMtYkVztEmyqJgJ5IbLOtbbi' alt="M11" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openInternshipImage(13)">
+                        <div class="internship-gallery-item-number">14</div>
+                        <img src='https://lh3.googleusercontent.com/d/1ZCK2BOCgAdEf8_69c4-DlP6-ZFYxNC96' alt="M12" class="internship-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-modal" id="electricityGallery">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="gallery-title">
+                    <span>⚡</span>
+                    <span data-en="Electricity Production Internship Gallery" data-fr="Galerie Stage Production d'Électricité">Electricity Production Internship Gallery</span>
+                </div>
+                <button class="gallery-close" onclick="closeElectricityGallery()">×</button>
+            </div>
+            <div class="gallery-content">
+                <div class="internship-gallery-grid">
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(0, 'video')">
+                        <div class="internship-gallery-item-number">1</div>
+                        <div class="internship-gallery-placeholder">
+                            <span>▶️</span>
+                        </div>
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(1, 'video')">
+                        <div class="internship-gallery-item-number">2</div>
+                        <div class="internship-gallery-placeholder">
+                            <span>▶️</span>
+                        </div>
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(2, 'video')">
+                        <div class="internship-gallery-item-number">3</div>
+                        <div class="internship-gallery-placeholder">
+                            <span>▶️</span>
+                        </div>
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(3, 'image')">
+                        <div class="internship-gallery-item-number">4</div>
+                        <img src='https://lh3.googleusercontent.com/d/1ViynUdYeElSTxit-6aEm1wonH5roOc18' alt="Production Equipment" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(4, 'image')">
+                        <div class="internship-gallery-item-number">5</div>
+                        <img src='https://lh3.googleusercontent.com/d/1ZR73O6RxmLucrwypmGfZ0CsikFGR30fQ' alt="Maintenance Work" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(5, 'image')">
+                        <div class="internship-gallery-item-number">6</div>
+                        <img src='https://lh3.googleusercontent.com/d/1vWmwRypY9fVwfRT-rFjuqgE_6-zjApZ9' alt="Control Systems" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(6, 'image')">
+                        <div class="internship-gallery-item-number">7</div>
+                        <img src='https://lh3.googleusercontent.com/d/1L9OviFOTHxtn6XtFcMKW-f0uklbw-WV4' alt="Distribution Systems" class="internship-image">
+                    </div>
+                    <div class="internship-gallery-item" onclick="openElectricityMedia(7, 'image')">
+                        <div class="internship-gallery-item-number">8</div>
+                        <img src='https://lh3.googleusercontent.com/d/1N_hkl7A8gsTt3qIOB6JiUAsvF1foNQYu' alt="Safety Protocols" class="internship-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="education">
+        <h2 data-en="Education" data-fr="Education" data-fr="Formation">Education</h2>
+        <div class="education-timeline">
+            <div class="education-item fade-in-up">
+                <div class="education-content">
+                    <h4>Master Ingénierie des systèmes complexes</h4>
+                    <div class="period">2026 - 2027</div>
+                    <div class="institution" data-en="ENS Paris-Saclay, Gif-sur-Yvette, France · Track: Advanced Manufacturing and Smart Systems (Critical Systems)" data-fr="ENS Paris-Saclay, Gif-sur-Yvette, France · Parcours : Advanced Manufacturing and Smart Systems (Systèmes critiques)">ENS Paris-Saclay, Gif-sur-Yvette, France · Track: Advanced Manufacturing and Smart Systems (Critical Systems)</div>
+                    <div class="modules">Modules: Digital twins for advanced manufacturing, Reliability and Risk, Machine learning, Techniques et outils pour la preuve de concepts</div>
+                    <span class="edu-badge" data-en="Currently enrolled" data-fr="En cours">Currently enrolled</span>
+                </div>
+            </div>
+            <div class="education-item fade-in-up">
+                <div class="education-content">
+                    <h4 data-en="Master of Science in Automation and Industrial Informatics" data-fr="Master en Automatique et Informatique Industrielle">Master of Science in Automation and Industrial Informatics</h4>
+                    <div class="period">2023 - 2025</div>
+                    <span class="edu-badge" data-en="Degree obtained" data-fr="Diplôme obtenu">Degree obtained</span>
+                    <div class="institution" data-en="Faculty of Technology, University of Boumerdes, Algeria" data-fr="Faculté de Technologie, Université de Boumerdes, Algérie">Faculty of Technology, University of Boumerdes, Algeria</div>
+                    <div class="modules" data-en="Key Modules: Real-Time Embedded Systems, Optimization, Advanced API Programming, Applied Electronics, FPGA & VHDL Programming" data-fr="Modules clés: Systèmes Embarqués Temps Réel, Optimisation, Programmation API Avancée, Électronique Appliquée, Programmation FPGA & VHDL">Key Modules: Real-Time Embedded Systems, Optimization, Advanced API Programming, Applied Electronics, FPGA & VHDL Programming</div>
+                </div>
+            </div>
+            <div class="education-item fade-in-up">
+                <div class="education-content">
+                    <h4 data-en="Bachelor of Science in Automation" data-fr="Licence en Automatisation">Bachelor of Science in Automation</h4>
+                    <div class="period">2020 - 2023</div>
+                    <div class="institution" data-en="Faculty of Technology, University of Boumerdes, Algeria" data-fr="Faculté de Technologie, Université de Boumerdes, Algérie">Faculty of Technology, University of Boumerdes, Algeria</div>
+                    <div class="modules" data-en="Key Modules: Linear System Control, Actuators, Signal Processing, Vibrations, Programmable Logic Controllers" data-fr="Modules clés: Contrôle de Systèmes Linéaires, Actionneurs, Traitement du Signal, Vibrations, Automates Programmables">Key Modules: Linear System Control, Actuators, Signal Processing, Vibrations, Programmable Logic Controllers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2 data-en="Certificates & Documents" data-fr="Certificats & Documents">Certificates & Documents</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in-up">
+                <h3>🇬🇧 IELTS</h3>
+                <p data-en="IELTS English language proficiency certificate." data-fr="Certificat de compétence en langue anglaise IELTS.">IELTS English language proficiency certificate.</p>
+                <div class="tech-stack"><span class="tech-tag">English</span><span class="tech-tag">Language Certificate</span></div>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1KFPVj6bToLilD6jIEz4fEMN5yvsVks3h/view?usp=drivesdk" target="_blank" rel="noopener" class="project-link" data-en="View Document →" data-fr="Voir Document →">View Document →</a>
+                </div>
+            </div>
+            <div class="project-card fade-in-up">
+                <h3>🇫🇷 TCF</h3>
+                <p data-en="TCF French language proficiency certificate." data-fr="Certificat de compétence en langue française TCF.">TCF French language proficiency certificate.</p>
+                <div class="tech-stack"><span class="tech-tag">French</span><span class="tech-tag">Language Certificate</span></div>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1AXdZOj0CVT_QNIUty7RCgsr8DeoPoNFI/view?usp=drivesdk" target="_blank" rel="noopener" class="project-link" data-en="View Document →" data-fr="Voir Document →">View Document →</a>
+                </div>
+            </div>
+            <div class="project-card fade-in-up">
+                <h3>🎓 School Certificate 2026</h3>
+                <p data-en="Official school enrollment certificate for the 2026 academic year." data-fr="Certificat de scolarité officiel pour l'année universitaire 2026.">Official school enrollment certificate for the 2026 academic year.</p>
+                <div class="tech-stack"><span class="tech-tag">Enrollment</span><span class="tech-tag">2026</span></div>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1U_TtF_Qv-ypFYq1KohecwJv6VLWvC-aT/view?usp=drivesdk" target="_blank" rel="noopener" class="project-link" data-en="View Document →" data-fr="Voir Document →">View Document →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 data-en="Technical Expertise" data-fr="Expertise Technique">Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in-up">
+                <h3 data-en="Programming & Development" data-fr="Programmation & Développement">Programming & Development</h3>
+                <div class="skill-items">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Dart (Flutter)</span>
+                    <span class="skill-item">C++</span>
+                    <span class="skill-item">VHDL</span>
+                    <span class="skill-item">MATLAB/Simulink</span>
+                    <span class="skill-item">Arduino IDE</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in-up">
+                <h3 data-en="Automation & Control" data-fr="Automatisation & Contrôle">Automation & Control</h3>
+                <div class="skill-items">
+                    <span class="skill-item" data-en="PLC Programming (Siemens Step 7)" data-fr="Programmation Automates (Siemens Step 7)">PLC Programming (Siemens Step 7)</span>
+                    <span class="skill-item" data-en="HMI Design" data-fr="Conception IHM">HMI Design</span>
+                    <span class="skill-item" data-en="Elevator Cabinet Wiring (ARL 200/300)" data-fr="Câblage Armoires Ascenseurs (ARL 200/300)">Elevator Cabinet Wiring (ARL 200/300)</span>
+                    <span class="skill-item" data-en="Electrical Schematic Reading" data-fr="Lecture Schémas Électriques">Electrical Schematic Reading</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in-up">
+                <h3 data-en="Cloud & Tools" data-fr="Cloud & Outils">Cloud & Tools</h3>
+                <div class="skill-items">
+                    <span class="skill-item">Firebase</span>
+                    <span class="skill-item">Google Cloud</span>
+                    <span class="skill-item">Cloudinary</span>
+                    <span class="skill-item">Proteus</span>
+                    <span class="skill-item">Microsoft Office Suite</span>
+                </div>
+            </div>
+            <div class="skill-category fade-in-up">
+                <h3 data-en="Soft Skills & Languages" data-fr="Compétences Interpersonnelles & Langues">Soft Skills & Languages</h3>
+                <div class="skill-items">
+                    <span class="skill-item" data-en="Teamwork" data-fr="Travail d'Équipe">Teamwork</span>
+                    <span class="skill-item" data-en="Time Management" data-fr="Gestion du Temps">Time Management</span>
+                    <span class="skill-item" data-en="Communication" data-fr="Communication">Communication</span>
+                    <span class="skill-item" data-en="Arabic (Native)" data-fr="Arabe (Natif)">Arabic (Native)</span>
+                    <span class="skill-item" data-en="English (IELTS B2)" data-fr="Anglais (IELTS B2)">English (IELTS B2)</span>
+                    <span class="skill-item" data-en="French (TCF B1)" data-fr="Français (TCF B1)">French (TCF B1)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="extras">
+        <h2 data-en="Languages &amp; Publication" data-fr="Langues &amp; Publication">Languages &amp; Publication</h2>
+        <div class="info-grid fade-in-up">
+            <div class="info-card">
+                <h3 data-en="🌍 Languages" data-fr="🌍 Langues">🌍 Languages</h3>
+                <p data-en="Arabic &amp; Kabyle: native" data-fr="Arabe et Kabyle : langues maternelles">Arabic &amp; Kabyle: native</p>
+                <p data-en="English: fluent (IELTS B2)" data-fr="Anglais : courant (IELTS B2)">English: fluent (IELTS B2)</p>
+                <p data-en="French: intermediate (TCF B1)" data-fr="Français : intermédiaire (TCF B1)">French: intermediate (TCF B1)</p>
+            </div>
+            <div class="info-card">
+                <h3 data-en="📄 Publication" data-fr="📄 Publication">📄 Publication</h3>
+                <p>Krazdi M., Haddouche I. (2025). <em>Smart Elevator Prototype Based on Arduino and RFID</em>. MSE'25, Chlef, Algeria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 data-en="About Me" data-fr="À propos">About Me</h2>
+        <div class="about-content fade-in-up">
+          
+          <p 
+            data-en="I'm Ikram Haddouche, holding a Master's degree in Automation and Industrial Informatics and currently enrolled in the Master Ingénierie des systèmes complexes (Advanced Manufacturing and Smart Systems) at ENS Paris-Saclay. I’m driven by the desire to design intelligent systems and innovative solutions that integrate automation, IoT, and embedded technologies, particularly in the field of smart buildings and industrial systems."
+            data-fr="Je suis Ikram Haddouche, titulaire d’un Master en Automatique et Informatique Industrielle et actuellement en Master Ingénierie des systèmes complexes (Advanced Manufacturing and Smart Systems) à l’ENS Paris-Saclay, passionnée par la conception de systèmes intelligents et de solutions innovantes alliant automatisation, IoT et technologies embarquées, notamment dans le domaine des bâtiments intelligents et des systèmes industriels.">
+            I'm Ikram Haddouche, holding a Master's degree in Automation and Industrial Informatics and currently enrolled in the Master Ingénierie des systèmes complexes (Advanced Manufacturing and Smart Systems) at ENS Paris-Saclay. I’m driven by the desire to design intelligent systems and innovative solutions that integrate automation, IoT, and embedded technologies, particularly in the field of smart buildings and industrial systems.
+          </p>
+      
+          <p 
+            data-en="My background includes developing mobile and IoT-based automation applications, programming embedded systems, and creating smart prototypes such as an RFID-controlled elevator. I also work with modern platforms like Flutter and Firebase to design intelligent service management solutions."
+            data-fr="Mon parcours comprend le développement d’applications mobiles et d’automatisation basées sur l’IoT, la programmation de systèmes embarqués et la création de prototypes intelligents tels qu’un ascenseur contrôlé par RFID. J’utilise également des plateformes modernes comme Flutter et Firebase pour concevoir des solutions intelligentes de gestion de services.">
+            My background includes developing mobile and IoT-based automation applications, programming embedded systems, and creating smart prototypes such as an RFID-controlled elevator. I also work with modern platforms like Flutter and Firebase to design intelligent service management solutions.
+          </p>
+      
+        </div>
+      </section>      
+
+    <section id="contact">
+        <h2 data-en="Let's Connect" data-fr="Restons en Contact">Let's Connect</h2>
+        <div class="contact-content fade-in-up">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>ikramhaddouche6@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+33 6 05 52 34 15</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span data-en="Île-de-France, France" data-fr="Île-de-France, France">Île-de-France, France</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <div class="fullscreen-content">
+            <img class="fullscreen-image" src="" alt="" style="display: none;">
+            <video class="fullscreen-video" controls style="display: none;"></video>
+            <button class="fullscreen-close" onclick="closeMediaModal()">×</button>
+            <button class="nav-arrow prev" onclick="previousMedia()">‹</button>
+            <button class="nav-arrow next" onclick="nextMedia()">›</button>
+            <div class="image-counter">1 / 10</div>
+        </div>
+    </div>
+
+    <script>
+        const internshipImages = [
+            { src: 'https://lh3.googleusercontent.com/d/1oxCWpPdg5VghSFxQu-a0JfiBz6F02-5L', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1I51x1mVWdew8dLYfZYgP9eFXD68Z0BEi', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/12YeI4Lr4Pv6MOPIdoaUupyo404UoGhMZ', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1TplU6JegK6eRu-vsJAKPJD1Be7gjE1yi', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1btHiU1rs1VIJ6-eqf3vSrTSkcvIqrxTM', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1YShtxiHMY6xmJwHoPgzSWa2b5SwEaPDS', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1_Z3Iu3Gf8-KzPY5PZm-Ob3oxtW47ZwSi', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/143liubMCrN0igMshDwNHV49_XgZO_vUB', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1MsGEuAMQ8F38H6Ft6fQmUdbUIBP8Qc6z', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1Xztl5dvGR9mUwvMYBQR1tCOIIfhiAHfI', type: 'image' },
+            { src: 'https://drive.google.com/file/d/17_PPRb2aS2Ah4_Ksrz5fAHSUM65lk3lY/preview', type: 'video', title: 'V5' },
+            { src: 'https://drive.google.com/file/d/11vmhHi5BU_7PQ0L3qe6fYJdmFp2x8yip/preview', type: 'video', title: 'V6' },
+            { src: 'https://lh3.googleusercontent.com/d/1czcNYLVleMtYkVztEmyqJgJ5IbLOtbbi', type: 'image', title: 'M11' },
+            { src: 'https://lh3.googleusercontent.com/d/1ZCK2BOCgAdEf8_69c4-DlP6-ZFYxNC96', type: 'image', title: 'M12' }
+        ];
+        const electricityMedia = [
+            { src: 'https://drive.google.com/file/d/17itPAzOl3d4Q2rTFaCm7ixC5M04i0Ed8/preview', type: 'video' },
+            { src: 'https://drive.google.com/file/d/169hVhRzWGvxcek9IevFQJUTKskf7UzIA/preview', type: 'video' },
+            { src: 'https://drive.google.com/file/d/15XbbLmQ3iZrJBePqdnW6sK_kGmm2Vunq/preview', type: 'video' },
+            { src: 'https://lh3.googleusercontent.com/d/1ViynUdYeElSTxit-6aEm1wonH5roOc18', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1ZR73O6RxmLucrwypmGfZ0CsikFGR30fQ', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1vWmwRypY9fVwfRT-rFjuqgE_6-zjApZ9', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1L9OviFOTHxtn6XtFcMKW-f0uklbw-WV4', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1N_hkl7A8gsTt3qIOB6JiUAsvF1foNQYu', type: 'image' },
+        ];
+
+        const mobileAppImages = [
+            { src: 'https://lh3.googleusercontent.com/d/1bbpJ2MX2CN8GrE2djk7sZRHIGoFYq7yc', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1uBSlHRbHfsbcq7OZeeJJ4dkGmCocTVr4', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1h4NLs_8YIT_88qlujTHfGGai2Nj_webh', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1LH6YAwpvkYEqs1M2muPzflwBAsdVhNM5', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/18KmJjoWbKa8ETOMSuiSV1_h87hG2FMQP', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1WrzY7yYFxtv-3fxlimUgZLuHHkR764F6', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1FmXgVj_FMqwJ2mkwlYoyHaOlkv49Egv-', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1ill-AReCxjtGQx-FDB9MMWFIeK9-qbGB', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1qRNWCsCXOCJ8eGAAc6YP0P4zxS6oQ0Fr', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1bNtdTzFRiJuyFV9X0bkDbwL17y1P-6pD', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1U_6em1zjZzxrH5rGLX2n7rwcbD1nANrT', type: 'image' },
+            { src: 'https://lh3.googleusercontent.com/d/1nozz2RGfXDxx0A-5sNVxkcFfLzSy3ibg', type: 'image' }
+        ];
+
+
+
+        let currentMediaIndex = 0;
+        let currentMediaArray = [];
+        let currentLang = 'en';
+
+        function openInternshipImage(index) {
+            currentMediaArray = internshipImages;
+            currentMediaIndex = index;
+            displayMedia();
+        }
+
+        function openElectricityMedia(index, type) {
+            currentMediaArray = electricityMedia;
+            currentMediaIndex = index;
+            displayMedia();
+        }
+
+        function displayMedia() {
+            const modal = document.getElementById('fullscreenModal');
+            const image = modal.querySelector('.fullscreen-image');
+            const video = modal.querySelector('.fullscreen-video');
+            const counter = modal.querySelector('.image-counter');
+            
+            const media = currentMediaArray[currentMediaIndex];
+            
+            if (media.type === 'video') {
+                image.style.display = 'none';
+                video.style.display = 'none';
+                
+                let videoFrame = modal.querySelector('.fullscreen-iframe');
+                if (!videoFrame) {
+                    videoFrame = document.createElement('iframe');
+                    videoFrame.className = 'fullscreen-iframe';
+                    videoFrame.style.maxWidth = '100%';
+                    videoFrame.style.maxHeight = '90vh';
+                    videoFrame.style.borderRadius = '10px';
+                    videoFrame.style.border = 'none';
+                    videoFrame.allow = 'autoplay';
+                    modal.querySelector('.fullscreen-content').appendChild(videoFrame);
+                }
+                videoFrame.style.display = 'block';
+                videoFrame.src = media.src;
+            } else {
+                const videoFrame = modal.querySelector('.fullscreen-iframe');
+                if (videoFrame) videoFrame.style.display = 'none';
+                video.style.display = 'none';
+                image.style.display = 'block';
+                image.src = media.src;
+                image.alt = media.title;
+            }
+            
+            counter.textContent = `${currentMediaIndex + 1} / ${currentMediaArray.length}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMediaModal() {
+            const modal = document.getElementById('fullscreenModal');
+            const video = modal.querySelector('.fullscreen-video');
+            video.pause();
+            video.src = '';
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function previousMedia() {
+            const video = document.querySelector('.fullscreen-video');
+            video.pause();
+            currentMediaIndex = (currentMediaIndex - 1 + currentMediaArray.length) % currentMediaArray.length;
+            displayMedia();
+        }
+
+        function nextMedia() {
+            const video = document.querySelector('.fullscreen-video');
+            video.pause();
+            currentMediaIndex = (currentMediaIndex + 1) % currentMediaArray.length;
+            displayMedia();
+        }
+
+        function openInternshipGallery() {
+            const gallery = document.getElementById('internshipGallery');
+            gallery.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInternshipGallery() {
+            const gallery = document.getElementById('internshipGallery');
+            gallery.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openElectricityGallery() {
+            const gallery = document.getElementById('electricityGallery');
+            gallery.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeElectricityGallery() {
+            const gallery = document.getElementById('electricityGallery');
+            gallery.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openMobileAppsGallery() {
+            const gallery = document.getElementById('mobileAppsGallery');
+            gallery.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileAppsGallery() {
+            const gallery = document.getElementById('mobileAppsGallery');
+            gallery.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openMobileAppImage(index) {
+            currentMediaArray = mobileAppImages;
+            currentMediaIndex = index;
+            displayMedia();
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`button[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            document.querySelectorAll('[data-en][data-fr]').forEach(element => {
+                if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                } else {
+                    element.textContent = element.getAttribute('data-fr');
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrolled / 100})`;
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item, .screenshot-item, .internship-gallery-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                follower.style.transform = 'translate(-50%, -50%) scale(0.8)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                follower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('fullscreenModal');
+            if (modal && modal.classList.contains('active')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeMediaModal();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        previousMedia();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        nextMedia();
+                        break;
+                }
+            }
+            
+        });
+        document.getElementById('internshipGallery').addEventListener('click', function(e) {
+            if (e.target === this) closeInternshipGallery();
+        });
+
+        document.getElementById('electricityGallery').addEventListener('click', function(e) {
+            if (e.target === this) closeElectricityGallery();
+        });
+
+        document.getElementById('fullscreenModal').addEventListener('click', function(e) {
+            if (e.target === this) closeMediaModal();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateFollower();
+        });
+    </script>
+</body>
+</html>
